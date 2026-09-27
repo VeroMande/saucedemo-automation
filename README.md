@@ -9,78 +9,40 @@ End-to-end test automation project for the [SauceDemo](https://www.saucedemo.com
 * Node.js
 * npm
 
-## Project Setup
+## Installation
 
-### Prerequisites
-
-Make sure the following are installed:
-
-* Node.js -> ```node --version```
-* npm ->  ```npm --version```
-* Git -> ```git --version```
-
-### Installation
-
-Clone the repository and move into the project directory:
+Clone the repository and install the dependencies:
 
 ```bash
 git clone <repository-url>
 cd saucedemo-automation
-```
-
-Install the project dependencies:
-
-```bash
 npm install
 ```
 
-### Run Cypress
+## Run Tests
 
 Open Cypress in interactive mode:
 
 ```bash
-npx cypress open
+npm run cy:open
 ```
 
-Run the tests in headless mode:
+Run all tests in headless mode:
 
 ```bash
-npx cypress run
+npm run cy:run
 ```
 
-## Project Structure
+## Test Coverage
 
-```text
-saucedemo-automation/
-├── cypress/
-│   ├── e2e/
-│   ├── fixtures/
-│   └── support/
-├── cypress.config.js
-├── package.json
-├── package-lock.json
-└── README.md
-```
+The test suite covers:
 
-## Test Strategy
-
-The test suite will focus on the main user journeys of the SauceDemo application, with particular attention to:
-
-* Authentication
-* Product selection
-* Shopping cart
+* Login
+* Invalid login
+* Locked-out user
+* Adding products to the cart
+* Cart validation
 * Checkout
+* Checkout validation
 * Order completion
-
-The goal is to validate realistic end-to-end user flows while keeping the test suite maintainable and reliable.
-
-## Future Improvements
-
-Potential improvements to the project include:
-
-* CI/CD integration
-* Cross-browser execution
-* Test reporting
-* Improved test data management
-* Accessibility testing
-* Visual regression testing
+* Order total calculation
