@@ -3,7 +3,14 @@ Cypress.Commands.add('login', (username, password) => {
     cy.get('[data-test="password"]').should('be.visible').type(password)
     cy.get('[data-test="login-button"]').should('be.enabled').click()
     cy.location('pathname').should('eq', '/inventory.html')
- })
+})
+
+Cypress.Commands.add('logout', () => { 
+    cy.get('#react-burger-menu-btn').should('be.visible').click()
+    cy.get('[data-test="logout-sidebar-link"]').should('be.visible').click()
+    cy.location('pathname').should('eq', '/')
+})
+
 //
 //
 // -- This is a child command --
