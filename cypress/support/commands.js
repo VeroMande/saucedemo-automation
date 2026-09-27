@@ -1,3 +1,9 @@
+Cypress.Commands.add('getUser', (userType) => {
+  return cy.env(['users']).then((env) => {
+    return env.users[userType]
+  })
+})
+
 Cypress.Commands.add('login', (username, password) => { 
     cy.get('[data-test="username"]').should('be.visible').type(username)
     cy.get('[data-test="password"]').should('be.visible').type(password)

@@ -37,13 +37,10 @@ const products = [
 
 
 describe('Full shopping flow', () => {
-    let standardUser
-
     beforeEach(() => {
-        cy.fixture('users_credentials').then((users) => {
-        standardUser = users.standardUser
         cy.visit('/')
-        cy.login(standardUser.username, standardUser.password)
+        cy.env(['users']).then((env) => {
+            cy.login(env.users.standardUser.username, env.users.standardUser.password)
         })
     })
 
