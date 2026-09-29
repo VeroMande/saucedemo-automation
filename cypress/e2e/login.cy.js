@@ -34,15 +34,6 @@ describe('Login', () => {
     cy.url().should('not.include', '/inventory.html')
   })
 
-  it('should successfully login with problem user', () => {
-    cy.getUser('problemUser').then((user) => {
-      cy.get('[data-test="username"]').should('be.visible').type(user.username)
-      cy.get('[data-test="password"]').should('be.visible').type(user.password)
-    })
-    cy.get('[data-test="login-button"]').click()
-    cy.url().should('include', '/inventory.html')
-  })
-
   it('should successfully login with performance glitch user', () => {
     cy.getUser('problemUser').then((user) => {
       cy.get('[data-test="username"]').should('be.visible').type(user.username)
